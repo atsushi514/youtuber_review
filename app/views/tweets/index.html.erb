@@ -1,9 +1,14 @@
 <div class="contents row">
   <% @tweets.each do |tweet| %>
-<label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
+<%= image_tag tweet.image, class: 'tweet-image' if tweet.image.attached? %>
+ <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
       <p><%= tweet.text %></p>
       <span class="name">
         <%= tweet.name %>

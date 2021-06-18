@@ -8,13 +8,19 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
+    @tweet = Tweet.create(tweet_params)
+end
+
+def destroy
+  tweet = Tweet.find(params[:id])
+  tweet.destroy
 end
 
 private
 def tweet_params
-  params.require(:tweet).permit(:name, :url, :text)
-  end
+  params.require(:tweet).permit(:name, :url, :text, :image)
+end
+
 
 end
 
