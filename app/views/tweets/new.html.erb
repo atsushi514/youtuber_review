@@ -1,0 +1,15 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @tweet, local: true) do |form| %>
+      <%= form.text_field :name, placeholder: "チャンネル名" %>
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <input type="file" class="hidden">
+    </label>
+    <%= form.text_field :url, placeholder: "URL" %>
+      <%= form.text_area :text, placeholder: "text", rows: "10" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
