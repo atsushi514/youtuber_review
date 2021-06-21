@@ -33,7 +33,7 @@ end
 
 private
 def tweet_params
-  params.require(:tweet).permit(:name, :url, :text, :image)
+  params.require(:tweet).permit(:name, :url, :text, :image).merge(user_id: current_user.id)
 end
 
 def set_tweet
