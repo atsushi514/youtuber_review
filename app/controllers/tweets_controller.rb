@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.includes(:user)
   end
 
   def new
@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.create(tweet_params)
+    Tweet.create(tweet_params)
 end
 
 def destroy
@@ -28,7 +28,6 @@ def update
 end
 
 def show
-  @tweets = Tweet.all
 end
 
 private

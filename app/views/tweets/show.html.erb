@@ -15,7 +15,10 @@
       <p><%= @tweet.text %></p>
       <p><%= @tweet.url%></p>
       <span class="name">
-      <%= @tweet.name %>
+      <a href="/users/<%= @tweet.user.id %>">
+        <span>投稿者</span><%= @tweet.user.nickname %>
+      </a>
+    </span>
       </span>
     </div>
   <% end %>
